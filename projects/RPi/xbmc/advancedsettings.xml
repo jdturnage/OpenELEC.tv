@@ -31,4 +31,6 @@
     <readbufferfactor>4.0</readbufferfactor>
   </network>
 
+  <splash> false</splash>
+
 </advancedsettings>
