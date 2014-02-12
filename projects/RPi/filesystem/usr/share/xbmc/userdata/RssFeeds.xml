@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rssfeeds>
+  <set id="1">
+    <feed updateinterval="30">http://blogs.nasa.gov/stationreport/feed/</feed>
+  </set>
+</rssfeeds>
