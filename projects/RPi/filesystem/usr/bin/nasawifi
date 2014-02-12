@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# This script serves as the service call for nasawifi.service
+# Connects to a nasa WPA2 WAP and uses udhcpd to get a IP lease
+#
+# Vast portions of this script have been stolen from Daniel Thau
+# https://github.com/paradigm/usr-local/blob/master/sbin/wifion#L64-L78
+# (With Permission I should add, he's very glad they're going to good
+# use at NASA)
+
+echo " - Starting Network Connectivity - "
+
+echo -n "Killing off connman"
+#/bin/systemctl stop connman.service
+kill `ps -ef | awk '/[c]onnman/{print $1}'`
+
+echo -n "Killing off wpa_supplicant D-Bus"
+/bin/systemctl stop wpa_supplicant.service
+
+echo -n "Bringing up wlan0 interface"
+ifconfig wlan0 up
+
+echo -n "Starting up our wpa_supplicant"
+/usr/bin/wpa_supplicant -i wlan0 -c/etc/wpa_supplicant.conf -B -f/storage/.cache/wpa_supplicant.log
+echo -n "done"
+START_TIME=$(date +%s)
+echo -n " - Waiting for association"
+while ! grep 'Associated with [0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]:[0-9a-f][0-9a-f]' 1> /dev/null /storage/.cache/wpa_supplicant.log ; do
+	echo -n "."
+	sleep .2s
+done
+echo "Associated"
+
+echo -n " - Getting IP -"
+if /sbin/udhcpc -n -iwlan0 -s/usr/bin/udhcpc-script
+then
+	echo "done"
+else
+	echo "FAILED"
+	exit 1
+fi
+
+echo -n "Mounting NFS"
+sleep 5s
+mount -t nfs $1:/media /media -o nolock;
+
+echo -n "Hitting the NTP"
+ntpdate time.nasa.gov
+exit 0
