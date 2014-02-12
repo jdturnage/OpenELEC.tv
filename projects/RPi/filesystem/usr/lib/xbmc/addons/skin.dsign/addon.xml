@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="skin.dsign"
+  version="0.2.0"
+  name="Digital Signage Skin"
+  provider-name="pmosbach,jdturnage,ecabuhay,brhoads">
+  <requires>
+    <import addon="xbmc.gui" version="5.0.0"/>
+  </requires>
+  <extension
+    point="xbmc.gui.skin"
+    defaultthemename="textures.xbt"
+    debugging="false"
+    effectslowdown="0.75">
+    <res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">A skin designed to support MOD's Digital Signage Project. (a derivative of Confluence)</summary>
+    <summary lang="en_US">A skin designed to support MOD's Digital Signage Project. (a derivative of Confluence)</summary>
+    <description lang="en">The Digital Signage Skin has a number of features intended to support non-interactive digital signage installations and is used in concert with other digital signage addons and a server. Added or modified elements include an informational overlay for when signage content is playing and hiding unneeded or undesired elements. It is still a work in progress.</description>
+    <description lang="en_US">The Digital Signage Skin has a number of features intended to support non-interactive digital signage installations and is used in concert with other digital signage addons and a server. Added or modified elements include an informational overlay for when signage content is playing and hiding unneeded or undesired elements. It is still a work in progress.</description>
+    <disclaimer lang="en">No imaginary or mythical creatures were harmed in the making of this skin, but be careful, ok?</disclaimer>
+    <disclaimer lang="en_US">No imaginary or mythical creatures were harmed in the making of this skin, but be careful, ok?</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>

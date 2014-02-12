@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="242424">
+        <setting label="007" type="text"   id="Location" default="Location"/>
+        <setting label="8" type="text"   id="Org"  default="Org Code" />
+	<setting label="2223" type="text"   id="PiDee"  default="-1" visible="false"/>
+        <setting label="123456789" type="text"   id="server" default="ds.vader.jsc.nasa.gov" visible="false"/>
+    	<setting label="1337" type="bool" id="Isolated" default="false" />
+	</category>
+</settings>
+
+<!-- ORG Codes -->
+<!-- 
+	 AB|AA|AC|AD|AO|AM|AH|AJ|AL|
+	 BA|CA|DA|EA|GA|JA|KA|NA|RA|
+	 SA|VA|XA|YA|OA|QA|IA|LA
+-->
