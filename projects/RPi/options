@@ -78,7 +78,7 @@
       ;;
   esac
 
-# Build optimizations (size/normal/speed)
+# Build optimizations (size/normal)
   OPTIMIZATIONS="size"
 
 # Project CFLAGS
@@ -161,7 +161,7 @@
 
 # build and install with DVDCSS support
 # (DVD decryption support in XBMC) (yes / no)
-  DVDCSS_SUPPORT="no"
+  DVDCSS_SUPPORT="yes"
 
 # build and install with LAME cdrip encoder support
   ENCODER_LAME="yes"
